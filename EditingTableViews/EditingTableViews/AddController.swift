@@ -12,11 +12,12 @@ class AddController: UIViewController {
     
 @IBOutlet weak var addItemTextField: UITextField!
     
-    
+var anItem: GroceryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addItemTextField.delegate = self
+        anItem = GroceryList(item: "apples")
     }
     
 }
@@ -25,6 +26,7 @@ extension AddController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        anItem?.item = textField.text ?? "Pursuit"
         return true
     }
     
